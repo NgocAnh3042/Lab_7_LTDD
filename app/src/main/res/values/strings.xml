@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Lab_7_TSX</string>
+    <string name="title_activity_course_details">CourseDetailsActivity</string>
+</resources>
