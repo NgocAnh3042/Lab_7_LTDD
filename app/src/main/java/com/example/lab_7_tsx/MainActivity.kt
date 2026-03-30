@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.sp
 import com.example.lab_7_tsx.ui.theme.Lab_7_TSXTheme
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.UUID
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -131,6 +130,20 @@ fun FirebaseUI(context: Context) {
         ) {
             Text(text = "Add Data", modifier = Modifier.padding(8.dp))
         }
+        
+        Spacer(modifier = Modifier.height(10.dp))
+        
+        Button(
+            onClick = {
+                val i = Intent(context, CourseDetailsActivity::class.java)
+                context.startActivity(i)
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            Text(text = "View Courses", modifier = Modifier.padding(8.dp))
+        }
     }
 }
 
@@ -142,8 +155,7 @@ fun addDataToFirebase(
 ) {
     val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     val dbCourses: CollectionReference = db.collection("Courses")
-    val courseID = UUID.randomUUID().toString()
-    val courses = Course(courseID, courseName, courseDuration, courseDescription)
+    val courses = Course("", courseName, courseDuration, courseDescription)
 
     dbCourses.add(courses).addOnSuccessListener {
         Toast.makeText(

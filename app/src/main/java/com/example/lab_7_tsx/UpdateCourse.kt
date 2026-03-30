@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lab_7_tsx.ui.theme.Lab_7_TSXTheme
+import com.example.lab_7_tsx.ui.theme.greenColor
 import com.google.firebase.firestore.FirebaseFirestore
 
 class UpdateCourse : ComponentActivity() {
@@ -38,7 +39,7 @@ class UpdateCourse : ComponentActivity() {
                         topBar = {
                             TopAppBar(
                                 colors = TopAppBarDefaults.topAppBarColors(
-                                    containerColor = Color(0xFF4CAF50),
+                                    containerColor = greenColor,
                                     titleContentColor = Color.White,
                                 ),
                                 title = {
